@@ -1,4 +1,8 @@
 /* gboard demo */
+body {
+  background-color: #f5f5f5;
+}
+
 #content ol {
   display: inline-block;
   width: 180px;
@@ -15,4 +19,33 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+#content a {
+  color: #333;
+}
+
+#content .JavaScript a {
+  color: #a69400;
+}
+
+#content .Java a {
+  color: #774600;
+}
+
+#content .C a,
+#content .CPP a {
+  color: #d80040;
+}
+
+#content .Objective-C a {
+  color: #438eff;
+}
+
+#content .Python a {
+  color: #3572A5;
+}
+
+#content .CSS a {
+  color: #380784;
 }

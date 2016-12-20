@@ -40,8 +40,9 @@
         </a>
       `;
       data.forEach(item => {
+        var lang = item.language && item.language.replace('C++', 'CPP');
         html += `
-          <li title="${item.description}">
+          <li title="${item.description}" class="${lang}">
             <a href="${item.html_url}">
               ${item.name}
             </a>
