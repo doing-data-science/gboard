@@ -1,9 +1,18 @@
 /* gboard demo */
 #content ol {
   display: inline-block;
-  width: 240px;
+  width: 180px;
+  float: left;
 }
 
 #content h2 {
-  
+  text-transform: Capitalize;
+}
+
+#content li {
+  margin: 2px 0;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
