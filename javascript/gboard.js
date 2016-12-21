@@ -31,7 +31,8 @@
 
   var orgs = ['facebook', 'google', 'microsoft', 'mozilla', 'nodejs', arr.join('')];
   orgs.forEach(orgs => {
-    var url = `//api.github.com/orgs/${orgs}/repos?page=1&per_page=30`;
+    var url = `//api.github.com/orgs/${orgs}/events?page=1&per_page=50`;
+    var res = [];
     ajax(url, data => {
       data = JSON.parse(data);
       var html = `
@@ -40,11 +41,18 @@
         </a>
       `;
       data.forEach(item => {
-        var lang = item.language && item.language.replace('C++', 'CPP');
+        if (!!~res.indexOf(item)) {
+          return;
+        }
+        res.push(item.repo.name);
+      });
+      data = data.slice(0, 30);
+      data.forEach(item => {
+        var url = item.repo.url || '';
         html += `
-          <li title="${item.description}" class="${lang}">
-            <a href="${item.html_url}">
-              ${item.name}
+          <li title="${item.repo.name}" class="">
+            <a href="${url.replace('api.', '').replace('/repos', '')}">
+              ${item.repo.name.split('/')[1]}
             </a>
           </li>
         `;
